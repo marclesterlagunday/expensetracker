@@ -17,3 +17,18 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//Get all roles
+Route::get('/role_list', 'RoleController@role_list');
+
+//Get role details
+Route::get('/role_list/{id}', 'RoleController@show');
+
+//Create role
+Route::post('/role_store', 'RoleController@store');
+
+//Update role
+Route::put('/role_store', 'RoleController@store');
+
+//Delete role
+Route::delete('/role_delete/{id}', 'RoleController@destroy');

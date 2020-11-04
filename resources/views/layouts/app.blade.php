@@ -33,7 +33,37 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        
+                        @auth
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('home') }}">Dashboard</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a id="userManagementBtn" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    User Management
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userManagementBtn">
+                                    <a class="dropdown-item" href="{{ route('roles') }}">
+                                        Roles
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('users') }}">
+                                        Users
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a id="expenseManagementBtn" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Expense Management
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="expenseManagementBtn">
+                                    <a class="dropdown-item" href="">
+                                        Expense Categories
+                                    </a>
+                                    <a class="dropdown-item" href="">
+                                        Expenses
+                                    </a>
+                                </div>
+                            </li>
+                        @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -72,7 +102,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main id="app" class="py-4">
             @yield('content')
         </main>
     </div>

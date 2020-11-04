@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Role;
 use Illuminate\Http\Request;
-use App\Http\Requests;
-use App\Http\Resources\Role as RoleResource;
 
-class RoleController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +13,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        return view('role');
+        //
     }
 
     /**
@@ -37,36 +34,27 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        $role = $request->isMethod('put') ? Role::findOrFail($request->id) : new Role;
-
-        $role->id = $request->input('id');
-        $role->role_name = $request->input('role_name');
-        $role->role_description = $request->input('role_description');
-
-        if($role->save()) {
-            return new Role;
-        }
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Role  $role
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $obj = Role::findOrFail($id);
-        return new RoleResource($obj);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Role  $role
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Role $role)
+    public function edit($id)
     {
         //
     }
@@ -75,10 +63,10 @@ class RoleController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Role  $role
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Role $role)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -86,22 +74,11 @@ class RoleController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Role  $role
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $obj = Role::findOrFail($id);
-
-        if($obj->delete()) {
-            return new RoleResource($obj);
-        }
-    }
-
-    public function role_list()
-    {
-        $roles = Role::paginate(5);
-
-        return RoleResource::collection($roles);
+        //
     }
 }
