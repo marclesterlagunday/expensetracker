@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
+use App\Http\Requests;
+use App\Http\Resources\User as UserResource;
 
 class UserController extends Controller
 {
@@ -13,7 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        return view('user');
     }
 
     /**
@@ -80,5 +83,12 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function user_list()
+    {
+        $users = User::paginate(5);
+
+        return UserResource::collection($users);
     }
 }

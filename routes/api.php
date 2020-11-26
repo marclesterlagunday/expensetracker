@@ -32,3 +32,6 @@ Route::put('/role_store', 'RoleController@store');
 
 //Delete role
 Route::delete('/role_delete/{id}', 'RoleController@destroy');
+
+//Get all users
+Route::get('/user_list', 'UserController@user_list');

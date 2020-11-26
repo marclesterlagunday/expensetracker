@@ -101,7 +101,9 @@
                 </div>
             </div>
         </nav>
-
+        <script>
+            let selected = 'selected menu';
+        </script>
         <main id="app" class="py-4">
             @yield('content')
         </main>
